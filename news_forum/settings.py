@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
+LOGIN_REDIRECT_URL = '/'  # Redirect to home after log in
+LOGOUT_REDIRECT_URL = '/'  # Redirect to home after log out
 
 # Application definition
 
