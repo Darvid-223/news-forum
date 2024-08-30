@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>News Posts</title>
-</head>
-<body>
-    <h1>News Posts</h1>
+{% extends 'base.html' %}
+
+{% block title %}All Posts{% endblock %}
+
+{% block content %}
+    <h1>All Posts</h1>
     <ul>
         {% for post in posts %}
             <li><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a> - {{ post.created_at }}</li>
         {% endfor %}
     </ul>
     <a href="{% url 'post_create' %}">Create a new post</a>
-</body>
-</html>
+{% endblock %}
