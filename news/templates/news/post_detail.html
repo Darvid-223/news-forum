@@ -13,4 +13,30 @@
     <a href="{% url 'post_edit' post.id %}">Edit</a>
     <a href="{% url 'post_delete' post.id %}">Delete</a>
     <a href="{% url 'post_list' %}">Back to all posts</a>
+
+    <hr>
+
+    <h2>Comments</h2>
+    <ul>
+        {% for comment in post.comments.all %}
+            <li>
+                <p>{{ comment.content }}</p>
+                <small>by {{ comment.user.username }} on {{ comment.created_at }}</small>
+                {% if comment.user == request.user %}
+                    <a href="{% url 'edit_comment' comment.id %}">Edit</a>
+                    <a href="{% url 'delete_comment' comment.id %}">Delete</a>
+                {% endif %}
+            </li>
+        {% empty %}
+            <p>No comments yet.</p>
+        {% endfor %}
+    </ul>
+
+    <h2>Add a Comment</h2>
+    <form method="post" action="{% url 'add_comment' post.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
 {% endblock %}

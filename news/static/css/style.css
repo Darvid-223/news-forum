@@ -15,7 +15,7 @@ body {
 
 /* Style the header */
 header {
-    background: #483939;
+    background: #535252;
     color: #fff;
     padding: 10px 0;
     text-align: center;
@@ -77,4 +77,8 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+footer {
+    text-align: center;
 }
