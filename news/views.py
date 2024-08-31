@@ -76,7 +76,8 @@ def add_comment(request, post_id):
             return redirect('post_detail', id=post.id)
     else:
         form = CommentForm()
-    return render(request, 'news/add_comment.html', {'form': form})
+
+    return render(request, 'news/post_detail.html', {'post': post, 'form': form})
 
 
 @login_required
