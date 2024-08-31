@@ -63,6 +63,7 @@ def post_delete(request, id):
     return render(request, 'news/post_confirm_delete.html', {'post': post})
 
 
+@login_required
 def add_comment(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if request.method == 'POST':
@@ -78,6 +79,7 @@ def add_comment(request, post_id):
     return render(request, 'news/add_comment.html', {'form': form})
 
 
+@login_required
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
     if request.method == 'POST':
@@ -90,6 +92,7 @@ def edit_comment(request, comment_id):
     return render(request, 'news/edit_comment.html', {'form': form})
 
 
+@login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
     if request.method == 'POST':
