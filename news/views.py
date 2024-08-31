@@ -22,7 +22,9 @@ def post_list(request):
 
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id)
-    return render(request, 'news/post_detail.html', {'post': post})
+    form = CommentForm()  
+    return render(request, 'news/post_detail.html', {'post': post, 'form': form})
+
 
 
 @login_required
