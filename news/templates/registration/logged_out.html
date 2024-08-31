@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Logged out</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Logged Out{% endblock %}
+
+{% block content %}
     <h1>You have been logged out</h1>
-    <a href="{% url 'login' %}">Login again</a>
+    <a href="{% url 'login' %}">Login again</a> | 
     <a href="{% url 'post_list' %}">Back to all posts</a>
-</body>
-</html>
+{% endblock %}
