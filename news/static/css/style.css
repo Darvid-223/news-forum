@@ -75,6 +75,21 @@ button {
     cursor: pointer;
 }
 
+.logout-button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 1em;
+}
+
+.logout-button:hover {
+    color: darkblue;
+    text-decoration: none;
+}
+
 button:hover {
     background-color: #0056b3;
 }
