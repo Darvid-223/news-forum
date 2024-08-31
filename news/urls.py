@@ -11,6 +11,7 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'), 
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('post/<int:post_id>/comment/', views.add_comment, name='add_comment'),
     path('comment/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'),
     path('comment/<int:comment_id>/delete/', views.delete_comment, name='delete_comment'),
 ]
