@@ -7,6 +7,13 @@ body {
     padding: 0;
 }
 
+main {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 /* Header Styling */
 header {
     background-color: #4CAF50;
