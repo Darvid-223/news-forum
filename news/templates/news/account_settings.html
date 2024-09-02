@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Account Settings{% endblock %}
+
+{% block content %}
+    <h1>Account Settings</h1>
+    <p>Update your account information below:</p>
+
+    <!-- Form for changing user details -->
+    <form method="post">
+        {% csrf_token %}
+        <!-- Add form fields here, like username, email, etc. -->
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="{{ request.user.username }}">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ request.user.email }}">
+        </div>
+        <!-- Add other fields as necessary -->
+        <button type="submit">Update Settings</button>
+    </form>
+
+    <hr>
+
+    <!-- Link to delete account -->
+    <h2>Danger Zone</h2>
+    <p>If you want to delete your account, click the button below. This action cannot be undone.</p>
+    <a href="{% url 'delete_account' %}" class="button danger">Delete Account</a>
+{% endblock %}

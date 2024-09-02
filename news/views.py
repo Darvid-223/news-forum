@@ -18,6 +18,11 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
+@login_required
+def account_settings(request):
+    return render(request, 'news/account_settings.html')
+
+
 def post_list(request):
     posts = Post.objects.all().order_by('-created_at')
     return render(request, 'news/post_list.html', {'posts': posts})
