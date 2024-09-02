@@ -58,6 +58,23 @@ In addition to unit testing, manual testing was conducted to validate the user e
 
 - **Comment Submission Issue:** A bug was encountered where submitting a comment while logged out resulted in an error. This was resolved by redirecting unauthenticated users to the login page.
 
+### Password Reset Functionality
+
+This project includes a password reset feature that allows users to reset their passwords in case they forget them. The functionality is implemented using Django's built-in authentication views, which handle the password reset process through email verification.
+
+#### Steps for Password Reset:
+
+1. Users can initiate the password reset process by clicking on the "Forgot your password?" link on the login page.
+2. The user will be prompted to enter their registered email address.
+3. If the email address is associated with an account, a password reset link will be sent to that email.
+4. The user can follow the link in the email to reset their password.
+
+#### Current Status:
+
+- **Bug:** The password reset functionality is not fully operational due to issues with SMTP authentication when attempting to send the reset email. Specifically, the application is encountering an `SMTPAuthenticationError` related to Google’s security settings.
+  
+- **Resolution:** The issue is likely due to missing or incorrect configuration of an app-specific password in the email service used for sending the reset emails. Once the app-specific password is correctly set up, the feature should work as intended.
+
 ### Tools and Resources
 
 - [Django](https://www.djangoproject.com/): The main web framework used to build the application.

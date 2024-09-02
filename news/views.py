@@ -3,6 +3,8 @@ from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 def signup(request):
@@ -25,6 +27,15 @@ def post_detail(request, id):
     form = CommentForm()  
     return render(request, 'news/post_detail.html', {'post': post, 'form': form})
 
+
+@login_required
+def delete_account(request):
+    if request.method == 'POST':
+        user = request.user
+        user.delete()
+        messages.success(request, 'Your account has been successfully deleted.')
+        return redirect('post_list')
+    return render(request, 'news/delete_account.html')
 
 
 @login_required
