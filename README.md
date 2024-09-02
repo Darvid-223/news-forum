@@ -4,7 +4,7 @@
 
 News Forum is a web application built with Django, designed for users to create, read, update, and delete posts, as well as to comment on posts. The project demonstrates the application of Python programming concepts and Django’s Model-View-Template (MVT) architecture. The platform is suitable for users who enjoy sharing and discussing news topics in a community setting.
 
-You can view the live application [here]( >LÄgg IN LÄNK).
+You can view the live application [here](https://news-forum-e420302f60a9.herokuapp.com/).
 
 ## Features
 
