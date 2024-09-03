@@ -127,7 +127,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'news', 'static'),
 )
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -137,7 +137,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SECURE_SSL_REDIRECT = True
+
 
 env = environ.Env()
 environ.Env.read_env()
@@ -151,6 +151,9 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'darvidapi@gmail.com'
 SECRET_KEY = env('SECRET_KEY')
 
+
+
+"""
 # HTTP Strict Transport Security
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
@@ -166,3 +169,6 @@ SECURE_BROWSER_XSS_FILTER = True
 
 
 X_FRAME_OPTIONS = 'DENY'
+"""
+
+SECURE_SSL_REDIRECT = False
