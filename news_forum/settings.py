@@ -28,7 +28,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -170,7 +170,7 @@ SECRET_KEY = env('SECRET_KEY')
 
 
 
-"""
+
 # HTTP Strict Transport Security
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
@@ -186,6 +186,6 @@ SECURE_BROWSER_XSS_FILTER = True
 
 
 X_FRAME_OPTIONS = 'DENY'
-"""
+
 
 SECURE_SSL_REDIRECT = False
