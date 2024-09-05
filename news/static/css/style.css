@@ -1,147 +1,85 @@
-/* Allmän stil */
+/* Set html and body to full height and flex layout */
 html, body {
-    height: 100%; /* Se till att body fyller hela höjden på sidan */
+    height: 100%; /* Ensures the body takes up the full height of the page */
     margin: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Makes the body a flex container with vertical stacking */
 }
 
+/* Body styling */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #f4f4f9; 
+    color: #333; 
     line-height: 1.6;
 }
 
+/* Link styling */
 a {
-    text-decoration: none;
-    color: #0077cc;
+    text-decoration: none; /* Removes underline from links */
+    color: #0077cc; /* Sets default link color */
 }
 
 a:hover {
-    color: #005f99;
+    color: #005f99; /* Changes link color on hover */
 }
 
+/* Main content area */
 main {
     width: 100%;
-    max-width: 1000px;
-    margin: 20px auto;
+    max-width: 1000px; 
+    margin: 20px auto; 
     padding: 20px;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 1; /* Gör main flexibelt så det tar upp allt tillgängligt utrymme */
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    flex: 1; 
 }
 
-/* Header */
+/* Header styling */
 header {
-    background-color: #283149;
+    background-color: #283149; 
     color: white;
     padding: 15px 0;
     text-align: center;
-    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2); 
     position: sticky;
-    top: 0;
-    z-index: 1000;
+    top: 0; 
+    z-index: 1000; 
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5em;
-    font-weight: 700;
-    letter-spacing: 2px;
+    font-size: 2.5em; 
+    font-weight: 700; 
+    letter-spacing: 2px; /* Adds space between letters */
 }
 
 header a {
-    color: #ffffff;
+    color: #ffffff; /* Makes header links white */
 }
 
+/* Navigation styling */
 nav {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: center; 
+    gap: 20px; 
     margin-top: 10px;
 }
 
 nav a {
     color: #ffffff;
-    font-size: 1.1em;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    font-size: 1.1em; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
 nav a:hover {
-    background-color: #404b69;
+    background-color: #404b69; /* Changes background color on hover */
 }
 
+/* Account settings icon */
 .account-settings {
     color: white;
-    font-size: 1.5em;
-}
-
-.account-settings i {
-    margin-left: 20px;
-}
-
-/* Knappar */
-button {
-    background-color: #283149;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #404b69;
-}
-
-/* Footer */
-footer {
-    background-color: #283149;
-    color: white;
-    padding: 15px 0;
-    text-align: center;
-    width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: auto; /* Se till att footern trycks ner */
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.9em;
-}
-
-/* Inmatningsfält */
-input[type="text"], input[type="password"], textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s;
-}
-
-input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
-    border-color: #0077cc;
-}
-
-/* Anpassning för mobil */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8em;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    main {
-        padding: 15px;
-    }
-}
+    font-size: 1
