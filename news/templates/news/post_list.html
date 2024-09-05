@@ -1,20 +1,43 @@
-<h2>Categories</h2>
-<ul>
-    <li><a href="{% url 'post_list' %}">All Categories</a></li>
-    {% for category in categories %}
-        <li>
-            <a href="{% url 'category_posts' category_id=category.id %}">
-                {{ category.name }}
-            </a>
-        </li>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    All Posts - News Forum
+{% endblock %}
+
+{% block content %}
+    <!-- Kategorilista -->
+    <h2>Categories</h2>
+    <ul>
+        <li><a href="{% url 'post_list' %}">All Categories</a></li>
+        {% for category in categories %}
+            <li>
+                <a href="{% url 'category_posts' category_id=category.id %}">
+                    {{ category.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Postlista -->
+    <h1>
+        {% if selected_category %}
+            Posts in {{ selected_category.name }}
+        {% else %}
+            All Posts
+        {% endif %}
+    </h1>
+
+    {% for post in posts %}
+        <div class="post">
+            <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
+            <p>{{ post.content|slice:":200" }}...</p>
+            <p>Posted in {{ post.category.name }} | {{ post.created_at }}</p>
+        </div>
     {% endfor %}
-</ul>
 
-<h1>{% if selected_category %}Posts in {{ selected_category.name }}{% else %}All Posts{% endif %}</h1>
-
-{% for post in posts %}
-    <div>
-        <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
-        <p>{{ post.content|slice:":200" }}...</p>
-    </div>
-{% endfor %}
+    <!-- Om det inte finns några inlägg -->
+    {% if not posts %}
+        <p>No posts available in this category.</p>
+    {% endif %}
+{% endblock %}
