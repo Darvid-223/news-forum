@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Post, Comment
+from .models import Post, Comment, Category
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -25,10 +25,26 @@ def account_settings(request):
     return render(request, 'news/account_settings.html')  # Render account settings page
 
 
-# View to display a list of posts
-def post_list(request):
-    posts = Post.objects.all().order_by('-created_at')  # Fetch all posts and order by creation date
-    return render(request, 'news/post_list.html', {'posts': posts})  # Render the post list
+from django.shortcuts import get_object_or_404
+
+# View to display a list of posts, optionally filtered by category
+def post_list(request, category_id=None):
+    if category_id:
+        # Filter posts by the selected category
+        posts = Post.objects.filter(category_id=category_id).order_by('-created_at')
+        selected_category = get_object_or_404(Category, id=category_id)
+    else:
+        # Fetch all posts if no category is selected
+        posts = Post.objects.all().order_by('-created_at')
+        selected_category = None
+    
+    categories = Category.objects.all()  # Fetch all categories for displaying in the template
+    return render(request, 'news/post_list.html', {
+        'posts': posts,
+        'categories': categories,
+        'selected_category': selected_category
+    })
+
 
 
 # View to display details of a specific post
