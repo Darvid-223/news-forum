@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import environ
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -89,29 +90,21 @@ WSGI_APPLICATION = 'news_forum.wsgi.application'
 # }
 
 if env('DJANGO_ENV') == 'development':
-    # Local settings
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'news_forum',
-            'USER': 'postgres',
+            'USER': 'postgres',  
             'PASSWORD': env('DB_PASSWORD'),
             'HOST': 'localhost',
             'PORT': '5432',
         }
     }
 else:
-    # Heroku settings
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': env('HEROKU_DB_NAME'),
-            'USER': env('HEROKU_DB_USER'),
-            'PASSWORD': env('HEROKU_DB_PASSWORD'),
-            'HOST': env('HEROKU_DB_HOST'),
-            'PORT': '5432',
-        }
+        'default': dj_database_url.config(conn_max_age=600)  
     }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
