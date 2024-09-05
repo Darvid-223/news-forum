@@ -211,15 +211,15 @@ For local development, this project is set up to run on a Python virtual environ
 ### Acknowledgements
 
 - Special thanks to my friend Lucas Behrendt, whose feedback and tips from his experience in the same course were immensely helpful.
-
 - Special thanks to [Udemy's 100 Days of Code: The Complete Python Pro Bootcamp for 2023](https://www.udemy.com/course/100-days-of-code/) for providing comprehensive lessons on Python and object-oriented programming, which significantly contributed to the development of this project.
+- **Fictional Articles**: ChatGPT was used to generate fictional news articles used as sample posts for demonstrating the application's functionality.
 
 This project was developed with the assistance of OpenAI's ChatGPT in the following areas:
 - **Code Validation**: ChatGPT helped validate the syntax and logic of the code.
 - **Spelling and Grammar Checks**: Assisted in checking and correcting spelling and grammar in the documentation and code comments.
 - **Translations**: Provided translations for multilingual support in the documentation.
 - **Coding Advice**: Offered suggestions and advice on coding practices and problem-solving approaches.
-- **Content Generation**: Assisted in generating content for the README and other documentation.
+- **Content Generation**: Assisted in generating fictional content for the posts displayed on the site.
 - **Real-Time Troubleshooting**: Supported real-time debugging and troubleshooting during the development process.
 
 Special thanks to [OpenAI's ChatGPT](https://openai.com/) for its invaluable support in refining the content and functionality of this project.
