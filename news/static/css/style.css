@@ -1,20 +1,25 @@
 /* Allmän stil */
+html, body {
+    height: 100%; /* Se till att body fyller hela höjden på sidan */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f9; /* Ljus bakgrund för att ge ett rent utseende */
-    color: #333; /* Standard textfärg */
-    margin: 0;
-    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
     line-height: 1.6;
 }
 
 a {
     text-decoration: none;
-    color: #0077cc; /* Länkfärg */
+    color: #0077cc;
 }
 
 a:hover {
-    color: #005f99; /* Länkfärg vid hover */
+    color: #005f99;
 }
 
 main {
@@ -25,11 +30,12 @@ main {
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Gör main flexibelt så det tar upp allt tillgängligt utrymme */
 }
 
 /* Header */
 header {
-    background-color: #283149; /* Mörk bakgrundsfärg för headern */
+    background-color: #283149;
     color: white;
     padding: 15px 0;
     text-align: center;
@@ -47,7 +53,7 @@ header h1 {
 }
 
 header a {
-    color: #ffffff; /* Vit text i headern */
+    color: #ffffff;
 }
 
 nav {
@@ -66,7 +72,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #404b69; /* Ljusare färg vid hover */
+    background-color: #404b69;
 }
 
 .account-settings {
@@ -80,7 +86,7 @@ nav a:hover {
 
 /* Knappar */
 button {
-    background-color: #283149; /* Mörk knappfärg */
+    background-color: #283149;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -90,20 +96,18 @@ button {
 }
 
 button:hover {
-    background-color: #404b69; /* Ljusare färg vid hover */
+    background-color: #404b69;
 }
 
 /* Footer */
 footer {
-    background-color: #283149; /* Matchar headern */
+    background-color: #283149;
     color: white;
     padding: 15px 0;
     text-align: center;
-    position: relative;
     width: 100%;
-    bottom: 0;
-    margin-top: 20px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: auto; /* Se till att footern trycks ner */
 }
 
 footer p {
@@ -123,7 +127,7 @@ input[type="text"], input[type="password"], textarea {
 }
 
 input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
-    border-color: #0077cc; /* Blå nyans vid fokus */
+    border-color: #0077cc;
 }
 
 /* Anpassning för mobil */
