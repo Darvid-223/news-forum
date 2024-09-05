@@ -5,35 +5,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title block: Can be overridden by child templates -->
     <title>{% block title %}News Forum{% endblock %}</title>
+
+    <!-- Linking the main CSS file and external resources -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
+    <!-- Header section for the website -->
     <header>
         <h1><a href="{% url 'post_list' %}">News Forum</a></h1>
+        
+        <!-- Navigation bar -->
         <nav>
             {% if user.is_authenticated %}
+                <!-- Message displayed when user is logged in -->
                 <p>Welcome, {{ user.username }}!</p>
+
+                <!-- Logout form -->
                 <form id="logout-form" action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
                     <button type="submit" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;">
                         <i class="fas fa-sign-out-alt"></i> Logout
                     </button>
                 </form>
-                <a href="{% url 'account_settings' %}" class="account-settings"><i class="fas fa-cog"></i></a>
+
+                <!-- Link to account settings -->
+                <a href="{% url 'account_settings' %}" class="account-settings">
+                    <i class="fas fa-cog"></i>
+                </a>
             {% else %}
+                <!-- Login and Sign Up links for unauthenticated users -->
                 <a href="{% url 'login' %}">Login</a>
                 <a href="{% url 'signup' %}">Sign Up</a>
             {% endif %}
         </nav>
     </header>
-    
+
+    <!-- Main content section, will be replaced in child templates -->
     <main>
         {% block content %}{% endblock %}
     </main>
 
+    <!-- Footer section -->
     <footer>
         <p>&copy; 2024 News Forum</p>
     </footer>
