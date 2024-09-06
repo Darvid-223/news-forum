@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    <!-- Kategorilista -->
+    <!-- Category -->
     <h2>Categories</h2>
     <ul>
         <li><a href="{% url 'post_list' %}">All Categories</a></li>
@@ -19,7 +19,7 @@
         {% endfor %}
     </ul>
 
-    <!-- Postlista -->
+    <!-- Post list -->
     <h1>
         {% if selected_category %}
             Posts in {{ selected_category.name }}
@@ -36,7 +36,7 @@
         </div>
     {% endfor %}
 
-    <!-- Om det inte finns några inlägg -->
+    <!-- If there are no posts -->
     {% if not posts %}
         <p>No posts available in this category.</p>
     {% endif %}
