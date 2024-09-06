@@ -134,6 +134,22 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
     border-color: #0077cc;
 }
 
+/* Styling for Create Post button */
+.create-post-button {
+    background-color: #283149;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.2em;
+}
+
+.create-post-button:hover {
+    background-color: #404b69;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
     header h1 {

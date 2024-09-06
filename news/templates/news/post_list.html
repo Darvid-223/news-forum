@@ -19,6 +19,13 @@
         {% endfor %}
     </ul>
 
+    <!-- Create Post button -->
+    <div style="margin-bottom: 20px;">
+        <a href="{% url 'post_create' %}">
+            <button class="create-post-button">Create Post</button>
+        </a>
+    </div>
+
     <!-- Post list -->
     <h1>
         {% if selected_category %}
