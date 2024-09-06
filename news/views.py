@@ -69,39 +69,44 @@ def delete_account(request):
 @login_required
 def post_create(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)  # Create form with POST data
-        if form.is_valid():  # Validate the form
+        form = PostForm(request.POST)
+        if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user  # Set the author of the post
-            post.save()  # Save the post
-            return redirect('post_detail', id=post.id)  # Redirect to the post's detail page
+            post.author = request.user
+            post.save()
+            messages.success(request, 'Post created successfully!')  # Flash message
+            return redirect('post_detail', id=post.id)
     else:
-        form = PostForm()  # Display an empty post form for GET request
-    return render(request, 'news/post_form.html', {'form': form})  # Render the post form
+        form = PostForm()
+    return render(request, 'news/post_form.html', {'form': form})
 
 
 # View to edit an existing post (requires login)
 @login_required
 def post_edit(request, id):
-    post = get_object_or_404(Post, id=id)  # Get the post by ID
+    post = get_object_or_404(Post, id=id)
     if request.method == 'POST':
-        form = PostForm(request.POST, instance=post)  # Create form with POST data and existing post
-        if form.is_valid():  # Validate the form
-            form.save()  # Save the updated post
-            return redirect('post_detail', id=post.id)  # Redirect to the post's detail page
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Post updated successfully!')  # Flash message
+            return redirect('post_detail', id=post.id)
     else:
-        form = PostForm(instance=post)  # Display form with existing post data for GET request
-    return render(request, 'news/post_form.html', {'form': form})  # Render the post form for editing
+        form = PostForm(instance=post)
+    return render(request, 'news/post_form.html', {'form': form})
+
 
 
 # View to delete a post (requires login)
 @login_required
 def post_delete(request, id):
-    post = get_object_or_404(Post, id=id)  # Get the post by ID
+    post = get_object_or_404(Post, id=id)
     if request.method == 'POST':
-        post.delete()  # Delete the post
-        return redirect('post_list')  # Redirect to the post list after deletion
-    return render(request, 'news/post_confirm_delete.html', {'post': post})  # Render the post delete confirmation page
+        post.delete()
+        messages.success(request, 'Post deleted successfully!')  # Flash message
+        return redirect('post_list')
+    return render(request, 'news/post_confirm_delete.html', {'post': post})
+
 
 
 # View to add a comment to a post (requires login)
