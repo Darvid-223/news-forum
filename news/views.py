@@ -86,8 +86,8 @@ def post_create(request):
 def post_edit(request, id):
     post = get_object_or_404(Post, id=id)
     
-    # Check if user is the author of the post
-    if post.author != request.user:
+    # Check if user is the author or superuser of the post
+    if post.author != request.user and not request.user.is_superuser:
         messages.error(request, 'You are not allowed to edit this post.')  
         return redirect('post_list')  # Redirect to home 
     
@@ -107,8 +107,8 @@ def post_edit(request, id):
 def post_delete(request, id):
     post = get_object_or_404(Post, id=id)
     
-    # Check if user is the author of the post
-    if post.author != request.user:
+    # Check if user is the author or superuser of the post
+    if post.author != request.user and not request.user.is_superuser:
         messages.error(request, 'You are not allowed to delete this post.')  
         return redirect('post_list')  # Redirect to home
     
