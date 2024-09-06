@@ -98,3 +98,18 @@ class PostFormTests(TestCase):
             'category': self.category.id
         })
         self.assertFalse(form.is_valid())  # Asserting that the form is invalid without content
+
+
+def test_edit_other_users_post(self):
+    another_user = User.objects.create(username='anotheruser')
+    post = Post.objects.create(title='Test Post', content='Just a test', author=another_user)
+    
+    response = self.client.get(reverse('post_edit', args=[post.id]))
+    self.assertEqual(response.status_code, 302)  # Expect redirection to post list or error page
+
+def test_delete_other_users_post(self):
+    another_user = User.objects.create(username='anotheruser')
+    post = Post.objects.create(title='Test Post', content='Just a test', author=another_user)
+    
+    response = self.client.post(reverse('post_delete', args=[post.id]))
+    self.assertEqual(response.status_code, 302)  # Expect redirection to post list or error page

@@ -85,6 +85,12 @@ def post_create(request):
 @login_required
 def post_edit(request, id):
     post = get_object_or_404(Post, id=id)
+    
+    # Check if user is the author of the post
+    if post.author != request.user:
+        messages.error(request, 'You are not allowed to edit this post.')  
+        return redirect('post_list')  # Redirect to home 
+    
     if request.method == 'POST':
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
@@ -97,15 +103,21 @@ def post_edit(request, id):
 
 
 
-# View to delete a post (requires login)
 @login_required
 def post_delete(request, id):
     post = get_object_or_404(Post, id=id)
+    
+    # Check if user is the author of the post
+    if post.author != request.user:
+        messages.error(request, 'You are not allowed to delete this post.')  
+        return redirect('post_list')  # Redirect to home
+    
     if request.method == 'POST':
         post.delete()
         messages.success(request, 'Post deleted successfully!')  # Flash message
         return redirect('post_list')
     return render(request, 'news/post_confirm_delete.html', {'post': post})
+
 
 
 
