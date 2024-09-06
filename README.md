@@ -63,11 +63,16 @@ These user stories were documented and implemented using GitHub's Issues feature
 
 ### Unit Testing
 
-Unit tests were created to verify the functionality of the models and views, ensuring that the application behaves as expected. These tests help in identifying and fixing bugs early in the development process.
+Unit tests were created to verify the functionality of models, views, and forms. These tests ensure the application behaves as expected under various scenarios. For example, the `PostModelTest` checks that posts are correctly created and associated with categories, while `CommentModelTest` verifies comment functionality.
+
+You can run the unit tests by executing:
+
+```bash
+python manage.py test
 
 ### Manual Testing
 
-In addition to unit testing, manual testing was conducted to validate the user experience and application flow:
+In addition to unit testing, manual testing was conducted to validate the user experience, such as ensuring that forms display appropriate error messages and restricted actions (like post creation) are only available to logged-in users.
 
 - **User Authentication:** Tested the signup, login, and logout functionalities with valid and invalid credentials.
 - **Post Management:** Created, edited, and deleted posts to ensure the correctness of the operations.
@@ -98,11 +103,7 @@ This project includes a password reset feature that allows users to reset their 
 
 - [Django](https://www.djangoproject.com/): The main web framework used to build the application.
 - [Python](https://www.python.org/): The programming language used for the backend logic.
-
-    LÄGG IN SQL
-- [SQLite](https://www.sqlite.org/index.html): Used as the database during development.
-
-
+- [PostgreSQL](https://www.postgresql.org/): The database used in both development and production environments.
 - [Git](https://git-scm.com/): For version control.
 - [GitHub](https://github.com/): Hosting the code repository.
 - [Heroku](https://www.heroku.com/): Platform for deploying the live application.
@@ -168,10 +169,6 @@ heroku restart
 
 ## Local Development Setup
 
-### Introduction
-
-For local development, this project is set up to run on a Python virtual environment. Visual Studio Code is recommended for its powerful features and integration with Git.
-
 ### Prerequisites
 
 - Python 3.6 or later
@@ -181,30 +178,37 @@ For local development, this project is set up to run on a Python virtual environ
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/your-username/news-forum.git
+    git clone https://github.com/darvid-223/news-forum.git
     cd news-forum
     ```
 
-2. **Create and Activate a Virtual Environment**:
+2. **Create a `.env` file for storing secret keys and credentials**:
+    ```bash
+    touch .env
+    ```
+
+3. **Create and Activate a Virtual Environment**:
     ```bash
     python -m venv venv
     source venv/bin/activate  # On Windows: venv\Scripts\activate
     ```
 
-3. **Install Dependencies**:
+4. **Install Dependencies**:
     ```bash
     pip install -r requirements.txt
     ```
 
-4. **Apply Migrations**:
+5. **Apply Migrations**:
     ```bash
     python manage.py migrate
     ```
 
-5. **Run the Development Server**:
+6. **Run the Development Server**:
     ```bash
     python manage.py runserver
     ```
+
+Make sure to populate the `.env` file with the necessary environment variables such as `SECRET_KEY`, `DB_PASSWORD`, `EMAIL_HOST_USER`, and `EMAIL_HOST_PASSWORD`.
 
 ## Credits & Acknowledgments
 
