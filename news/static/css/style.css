@@ -121,6 +121,17 @@ footer p {
     font-size: 0.9em;
 }
 
+/* Styling for the action links */
+.post-action {
+    margin-right: 15px; /* Adds space between each action link */
+    text-decoration: none; /* Ensures consistent styling */
+}
+
+/* Remove margin from the last action link */
+.post-action:last-child {
+    margin-right: 0; /* No margin after the last link */
+}
+
 /* Input */
 input[type="text"], input[type="password"], textarea {
     width: 100%;
