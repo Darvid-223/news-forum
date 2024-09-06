@@ -151,25 +151,30 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
     background-color: #404b69;
 }
 
-/* Mobile */
+/* Label styling */
+label {
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+}
+
+/* Adjust content for smaller screens */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8em;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 10px;
-    }
-
     main {
-        padding: 15px;
+        padding: 10px; 
     }
 
-    /* Input fields adjustments for mobile */
-    input[type="text"], input[type="password"], textarea {
-        width: 90%; 
-        max-width: 500px; 
+    .post-content, article, p {
+        width: 100%;
+        max-width: 90%; 
         margin: 0 auto; 
+        padding: 10px; 
+        box-sizing: border-box; 
+    }
+
+    h1, h2, h3 {
+        max-width: 90%;
+        margin: 0 auto; 
+        padding: 10px; 
     }
 }
