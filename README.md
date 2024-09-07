@@ -1,5 +1,44 @@
 # News Forum
 
+- [News Forum](#news-forum)
+  * [Introduction & Overview](#introduction---overview)
+    + [Features](#features)
+    + [Screenshots](#screenshots)
+    + [Article Page](#article-page)
+    + [Home Page](#home-page)
+    + [Login Page](#login-page)
+    + [Installation](#installation)
+    + [Wireframes & Design Process](#wireframes---design-process)
+      - [Design Process](#design-process)
+      - [Wireframes](#wireframes)
+        * [Article Page](#article-page-1)
+        * [Home Page](#home-page-1)
+        * [Login Page](#login-page-1)
+        * [Register Page](#register-page)
+    + [Usage](#usage)
+  * [Technologies Used](#technologies-used)
+  * [Development Process](#development-process)
+  * [Security Enhancements](#security-enhancements)
+  * [Testing](#testing)
+    + [Unit Testing](#unit-testing)
+    + [Manual Testing](#manual-testing)
+      - [User Authentication:](#user-authentication-)
+      - [Post and Comment Management:](#post-and-comment-management-)
+      - [Responsive Design:](#responsive-design-)
+    + [Bugs and Unresolved Issues](#bugs-and-unresolved-issues)
+      - [Password Reset Functionality:](#password-reset-functionality-)
+    + [Validator Testing](#validator-testing)
+      - [HTML/CSS Validation:](#html-css-validation-)
+      - [Python Validation:](#python-validation-)
+    + [Running Tests Locally](#running-tests-locally)
+  * [Deployment](#deployment)
+    + [Steps for Deployment on Heroku:](#steps-for-deployment-on-heroku-)
+    + [Additional Notes:](#additional-notes-)
+  * [Credits & Acknowledgments](#credits---acknowledgments)
+    + [Acknowledgements](#acknowledgements)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 ## Introduction & Overview
 
 News Forum is a web application built with Django, designed for users to create, read, update, and delete posts, as well as to comment on posts. The project demonstrates the application of Python programming concepts and Django’s Model-View-Template (MVT) architecture. The platform is suitable for users who enjoy sharing and discussing news topics in a community setting.
