@@ -6,15 +6,24 @@ News Forum is a web application built with Django, designed for users to create,
 
 You can view the live application [here](https://news-forum-e420302f60a9.herokuapp.com/).
 
-## Features
+### Features
 
-This implementation includes features such as:
+- **User Authentication**: 
+  - Users can sign up, log in, and log out. This is essential for managing user accounts and ensuring that only authenticated users can create posts or comment.
+  
+- **CRUD Operations for Posts and Comments**: 
+  - Authenticated users can create, read, update, and delete their own posts and comments. This allows users to interact with the content in a dynamic way, encouraging discussion and collaboration.
+  
+- **Category Management**: 
+  - Posts can be categorized under specific topics, making it easier for users to browse and find content relevant to their interests.
+  
+- **Responsive Design**: 
+  - The platform is optimized for both desktop and mobile devices, providing a seamless experience across different screen sizes.
+  
+- **Flash Messages**: 
+  - Users receive real-time feedback on their actions (e.g., successful post creation, errors, etc.), which improves the usability of the site.
 
-- User authentication: Registration, login, and logout functionality.
-- CRUD operations for posts and comments: Users can create, read, edit, and delete posts and comments.
-- Category management: Each post can be associated with a category.
-- User-friendly interface with responsive design.
-- Security features: Only authenticated users can create or comment on posts.
+---
 
 ### Screenshots
 
@@ -24,204 +33,349 @@ This implementation includes features such as:
 - Small-screen: ![Article Small](news/static/images/screens/articlesmall.png)
 
 ### Home Page
-- Fullscreen: ![Home Fullscreen](../news/static/images/screens/homefull.png)
-- Mid-screen: ![Home Mid](../news/static/images/screens/homemid.png)
-- Small-screen: ![Home Small](../news/static/images/screens/homesmall.png)
+- Fullscreen: ![Home Fullscreen](news/static/images/screens/homefull.png)
+- Mid-screen: ![Home Mid](news/static/images/screens/homemid.png)
+- Small-screen: ![Home Small](news/static/images/screens/homesmall.png)
 
 ### Login Page
-- Fullscreen: ![Login Fullscreen](../news/static/images/screens/loginfull.png)
-- Mid-screen: ![Login Mid](../news/static/images/screens/loginmid.png)
-- Small-screen: ![Login Small](../news/static/images/screens/loginsmall.png)
+- Fullscreen: ![Login Fullscreen](news/static/images/screens/loginfull.png)
+- Mid-screen: ![Login Mid](news/static/images/screens/loginmid.png)
+- Small-screen: ![Login Small](news/static/images/screens/loginsmall.png)
 
-## Project Rationale and Design Decisions
+### Installation
 
-### Security Enhancements
+Follow these steps to install and run the project locally:
 
-To enhance the security of the News Forum application, several measures were implemented:
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/darvid-223/news-forum.git
+   cd news-forum
 
-- **Environment Variables:** Sensitive information such as the `SECRET_KEY` and email credentials are stored in environment variables using a `.env` file. This ensures that these details are not exposed in the code repository.
-- **Secure Cookies:** The application uses secure settings for cookies (`SESSION_COOKIE_SECURE`, `CSRF_COOKIE_SECURE`) to prevent security vulnerabilities like Cross-Site Request Forgery (CSRF).
-- **HTTPS Redirect:** The application forces HTTPS connections with `SECURE_SSL_REDIRECT` to ensure secure communication between the client and the server.
+2. **Create a Virtual Environment**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use venv\Scripts\activate
 
-### Object-Oriented Programming and Django Framework
+3. **Install Dependencies**:
+    ```bash
+    pip install -r requirements.txt
 
-The project leverages Django’s MVT architecture, which organizes the code into distinct components for models, views, and templates, promoting a clean and maintainable codebase. 
+4. **Create a .env File**:
+   ```bash
+   SECRET_KEY=your-secret-key
+   DB_PASSWORD=your-database-password
+   EMAIL_HOST_USER=your-email@example.com
+   EMAIL_HOST_PASSWORD=your-email-password
 
-- **Models:** Define the data structure of the application, such as `Post` and `Comment`, and are linked with Django’s ORM for database interactions.
-- **Views:** Handle the logic for rendering templates and processing data. For example, the `post_detail` view retrieves and displays post details.
-- **Templates:** Use Django's template language to render HTML pages dynamically based on the data passed by views.
+5. **Apply Migrations**:
+   ```bash
+   python manage.py migrate
 
-Some of the key methods and components include:
+6. **Create a Superuser (optional)**:
+   ```bash
+   python manage.py createsuperuser
 
-- **Model Inheritance:** Extending Django’s `Model` class to define the data schema.
-- **Form Handling:** Utilizing Django’s `ModelForm` to manage form input and validation.
-- **Authentication Decorators:** Protecting views with `@login_required` to ensure that only authenticated users can perform certain actions.
+7. **Run the Development Server:**:
+   ```bash
+   python manage.py runserver
+
+8. **Collect Static Files:**:
+   ```bash
+   python manage.py collectstatic
+
+### Wireframes & Design Process
+
+The design process for this project followed a user-centered approach, focusing on simplicity, ease of navigation, and responsive design to ensure a seamless experience across different devices.
+
+#### Design Process
+
+1. **Wireframing**:  
+   The first step in the design process was creating wireframes for key pages (Article Page, Home Page, Login Page, and Register Page). These wireframes helped visualize the basic layout of the site before development, allowing for clear planning of where elements like navigation, content, and user interactions would be placed.
+
+2. **Responsive Design**:  
+   One of the primary goals was to ensure that the layout adapts well to various screen sizes, from large desktop screens to smaller mobile devices. The wireframes reflect this with a focus on how elements like navigation menus, forms, and content blocks should behave on different devices.
+
+3. **Consistency**:  
+   Consistent use of fonts, colors, and layouts was emphasized to ensure that users would have a cohesive experience across all pages. The design keeps a clean look with simple navigation, making it easy for users to access and interact with posts.
+
+4. **User Flow**:  
+   The wireframes aimed to make the user flow intuitive, with clear calls to action on pages like the Home and Article pages. The Login and Register pages were designed to be straightforward, with minimal distractions, allowing users to quickly sign up or log in to interact with the platform.
+
+5. **Feedback and Iteration**:  
+   The initial wireframes were revised based on feedback to improve usability and accessibility. For example, button placements and font sizes were adjusted to improve navigation on smaller screens.
+
+#### Wireframes
+
+Below are the wireframes created during the design phase:
+
+##### Article Page
+- ![Article Wireframe](news/static/images/wireframes/article.png)
+
+##### Home Page
+- ![Home Wireframe](news/static/images/wireframes/home.png)
+
+##### Login Page
+- ![Login Wireframe](news/static/images/wireframes/login.png)
+
+##### Register Page
+- ![Register Wireframe](news/static/images/wireframes/register.png)
+
+### Usage
+
+After installing and setting up the project, users can interact with the platform through the following features:
+
+1. **User Authentication**:
+   - Users can register, log in, and log out.
+   - Only authenticated users can create, edit, or delete posts and comments.
+
+2. **Creating a Post**:
+   - Once logged in, users can create a post by navigating to the "Create Post" button.
+   - Fill in the required fields (Title, Content, and Category) and click "Save" to submit the post.
+
+3. **Viewing Posts**:
+   - The home page displays a list of all posts. Clicking on a post title will take the user to the detailed view of that post.
+   - Users can also filter posts by category to view posts on specific topics.
+
+4. **Commenting on Posts**:
+   - At the bottom of each post's detail page, users can add comments.
+   - Only the author of a comment can edit or delete it.
+
+5. **Editing or Deleting a Post**:
+   - Users can edit or delete their posts from the post detail page by clicking the "Edit" or "Delete" buttons.
+
+6. **Responsive Design**:
+   - The application is fully responsive, ensuring that the user interface adapts seamlessly to different screen sizes. You can test it by resizing your browser or viewing it on mobile devices.
+
+Here are the steps to use the application:
+
+1. **Start the Development Server**:
+   - If running the project locally, ensure that the development server is running:
+     ```bash
+     python manage.py runserver
+     ```
+
+2. **Access the Application**:
+   - Open a web browser and navigate to `http://127.0.0.1:8000/` to view the application locally.
+   - For the live version, visit: [News Forum Live Application](https://news-forum-e420302f60a9.herokuapp.com/).
+
+## Technologies Used
+
+The following technologies, frameworks, and tools were used in the development of this project:
+
+1. **Python**: The primary programming language used for backend logic and managing data.
+   
+2. **Django**: A high-level Python web framework that handles the Model-View-Template (MVT) architecture, making it easier to build the dynamic and interactive features of the platform.
+
+3. **PostgreSQL**: A powerful, open-source relational database used for both development and production environments.
+
+4. **HTML/CSS**: Used for structuring the front-end design, ensuring the site is visually appealing and responsive.
+
+5. **Bootstrap**: A CSS framework used to create a mobile-first responsive layout for the website.
+
+6. **JavaScript**: Added functionality such as form validation and improved user interactions on the client side.
+
+7. **Git & GitHub**: Used for version control, enabling regular commits, collaborative development, and hosting the repository.
+
+8. **Heroku**: A cloud platform used for deploying the live version of the application.
+
+9. **Jinja2**: Template engine integrated with Django for rendering dynamic HTML pages.
+
+10. **Font Awesome**: A library for adding scalable vector icons, enhancing the website's UI with icons for navigation and interaction.
 
 ## Development Process
 
-### Agile Methodology and User Stories
+The development of the News Forum application followed the **Agile methodology**, which emphasizes iterative development and continuous feedback. This approach allowed for flexibility in adjusting features based on feedback and ensured the project met the intended goals efficiently.
 
-The development of the News Forum application followed an Agile methodology, focusing on iterative development and continuous feedback. Key functionalities were planned and tracked using user stories. For example:
+Key components of the Agile process included:
 
-- **User Story 1:** "As a registered user, I want to create a new post so that I can share information with other users."
-- **User Story 2:** "As a registered user, I want to delete my account so that I can remove my presence from the platform."
+1. **GitHub Issues**:
+   - GitHub Issues was used as the primary tool for tracking tasks and managing user stories.
+   - Each user story or task was logged as an issue, assigned a priority, and linked to relevant commits for easy tracking and collaboration.
 
-These user stories were documented and implemented using GitHub's Issues feature, allowing for efficient tracking and progress monitoring throughout the project lifecycle.
+2. **Continuous Integration & Deployment**:
+   - The project was continuously integrated into a version control system (Git), with all code being pushed to a GitHub repository.
+   - Heroku was used for deployment, ensuring that the live version of the application was updated after each successful merge to the main branch.
+
+3. **Continuous Evaluation**:
+   - Since the project timeline was limited, a formal sprint process was not used. Instead, I continuously evaluated the development progress.
+   - Regular assessments were made to identify what was working well and what required improvement. This approach allowed for quick adjustments and ensured the project stayed on track.
+
+By following this Agile methodology, the project was developed in a structured yet flexible manner, allowing for consistent progress while accommodating changes as needed.
+
+## Security Enhancements
+
+The News Forum application implements several key security features to ensure the protection of user data and to mitigate common web security vulnerabilities:
+
+1. **Cross-Site Request Forgery (CSRF) Protection**:
+   - Django’s built-in CSRF protection has been enabled to prevent unauthorized commands being executed on behalf of an authenticated user.
+   - This is especially important in forms where users submit sensitive data, such as login information or comments.
+
+2. **Cross-Site Scripting (XSS) Protection**:
+   - By using Django's templating engine, the application automatically escapes potentially harmful HTML or JavaScript, protecting against XSS attacks.
+   - User inputs are sanitized before being rendered in the browser.
+
+3. **Secure Cookies**:
+   - The application configures session and CSRF cookies to be sent over secure connections (`SESSION_COOKIE_SECURE` and `CSRF_COOKIE_SECURE`), ensuring these cookies are only transmitted via HTTPS in production.
+
+4. **SSL/HTTPS in Production**:
+   - When deployed on Heroku, the application enforces HTTPS using Django’s `SECURE_SSL_REDIRECT` setting, which ensures that all traffic is encrypted between the user and the server.
+   - This guarantees that sensitive information, such as login credentials, are securely transmitted.
+   
+5. **Local Development**:
+   - For local development, `SECURE_SSL_REDIRECT` and `SESSION_COOKIE_SECURE` are disabled to allow ease of testing without needing HTTPS.
+   - This ensures a flexible development environment while keeping security tight in production.
+
+6. **Environment Variables**:
+   - Sensitive information such as `SECRET_KEY`, database credentials, and email settings are stored securely in environment variables and not hardcoded into the project.
+   - This protects these values from being exposed in the version control system.
+
+By implementing these security measures, the News Forum application ensures that user data is protected, both in local development and in production environments on Heroku.
 
 ## Testing
 
-## JavaScript Testing
-
-The current version of this application does not utilize any JavaScript functionality. Therefore, no JavaScript tests have been implemented.
-
 ### Unit Testing
 
-Unit tests were created to verify the functionality of models, views, and forms. These tests ensure the application behaves as expected under various scenarios. For example, the `PostModelTest` checks that posts are correctly created and associated with categories, while `CommentModelTest` verifies comment functionality.
+The News Forum application includes unit tests to verify the functionality of models, views, and forms. These tests are essential to ensure that the core features, such as post creation, comment functionality, and user authentication, work as intended.
 
-You can run the unit tests by executing:
-
-```bash
-python manage.py test
-```
+To run the unit tests, use the following command:
+   ```bash
+   python manage.py test
+   ```
 
 ### Manual Testing
 
-In addition to unit testing, manual testing was conducted to validate the user experience, such as ensuring that forms display appropriate error messages and restricted actions (like post creation) are only available to logged-in users.
+In addition to unit tests, the following manual tests were conducted:
 
-- **User Authentication:** Tested the signup, login, and logout functionalities with valid and invalid credentials.
-- **Post Management:** Created, edited, and deleted posts to ensure the correctness of the operations.
-- **Comment System:** Verified that comments could be added, edited, and deleted, and that only the comment owner could perform these actions.
+#### User Authentication:
+- Verified that users can successfully sign up, log in, and log out.
+- Ensured that only authenticated users can create posts or leave comments.
 
-### Bugs
+#### Post and Comment Management:
+- Tested creating, editing, and deleting posts and comments.
+- Ensured that only the author of a post or comment can edit or delete it.
 
-- **Comment Submission Issue:** A bug was encountered where submitting a comment while logged out resulted in an error. This was resolved by redirecting unauthenticated users to the login page.
+#### Responsive Design:
+- Tested the application across different screen sizes (desktop, tablet, mobile) to ensure it remains fully functional and visually consistent.
 
-### Password Reset Functionality
+### Bugs and Unresolved Issues
 
-This project includes a password reset feature that allows users to reset their passwords in case they forget them. The functionality is implemented using Django's built-in authentication views, which handle the password reset process through email verification.
+#### Password Reset Functionality:
+- The password reset feature is currently not functioning as expected. Although the application attempts to send reset emails through Gmail’s SMTP service, there is an unresolved issue related to SMTP authentication with Google’s service.
+- The error encountered is likely due to incorrect or missing configuration of an app-specific password for the email account in use. Google may block access due to its security settings.
+- This issue is still being investigated, and users are unable to reset their passwords at this time.
 
-#### Steps for Password Reset:
+### Validator Testing
 
-1. Users can initiate the password reset process by clicking on the "Forgot your password?" link on the login page.
-2. The user will be prompted to enter their registered email address.
-3. If the email address is associated with an account, a password reset link will be sent to that email.
-4. The user can follow the link in the email to reset their password.
+#### HTML/CSS Validation:
+- The HTML and CSS code was validated using [W3C Validator](https://validator.w3.org/) to ensure compliance with web standards.
 
-#### Current Status:
+#### Python Validation:
+- The Python code was validated against PEP8 standards using `flake8` to ensure proper code formatting and consistency.
 
-- **Bug:** The password reset functionality is not fully operational due to issues with SMTP authentication when attempting to send the reset email. Specifically, the application is encountering an `SMTPAuthenticationError` related to Google’s security settings.
-  
-- **Resolution:** The issue is likely due to missing or incorrect configuration of an app-specific password in the email service used for sending the reset emails. Once the app-specific password is correctly set up, the feature should work as intended.
+### Running Tests Locally
 
-### Tools and Resources
+To test the application locally, follow these steps:
 
-- [Django](https://www.djangoproject.com/): The main web framework used to build the application.
-- [Python](https://www.python.org/): The programming language used for the backend logic.
-- [PostgreSQL](https://www.postgresql.org/): The database used in both development and production environments.
-- [Git](https://git-scm.com/): For version control.
-- [GitHub](https://github.com/): Hosting the code repository.
-- [Heroku](https://www.heroku.com/): Platform for deploying the live application.
+1. **Ensure all dependencies are installed**:
+   ```bash
+   pip install -r requirements.txt
+
+2. **Run the Django development server to manually test functionality**:
+   ```bash
+   python manage.py runserver
+
+3. **For unit tests, execute the following**:
+   ```bash
+   python manage.py test
+
+By running these tests, you can ensure that the application functions correctly in both development and production environments.
 
 ## Deployment
 
-### Heroku
+The News Forum application is deployed on [Heroku](https://www.heroku.com/) for easy access and scalability. Below are the steps to deploy the application to a production environment.
 
-The News Forum application is deployed on Heroku. To deploy your own version:
+### Steps for Deployment on Heroku:
 
-1. **Create a New Heroku App**: Use the Heroku dashboard or CLI to create a new app.
-2. **Set Up Buildpacks**: Configure the buildpacks for Python in your Heroku app settings.
-3. **Link to GitHub**: Connect your Heroku app to your GitHub repository for automatic deployment.
-4. **Deploy the Application**: Deploy manually or set up automatic deploys from the GitHub branch.
+1. **Create a Heroku Account**:
+   - If you don’t have an account, sign up at [Heroku's website](https://www.heroku.com/).
 
-# Environment Configuration
+2. **Install Heroku CLI**:
+   - Download and install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) for your operating system.
 
-# To ensure the application runs securely and efficiently on Heroku, 
-# several environment variables need to be configured. 
-# These are essential for settings like email functionality and security:
+3. **Login to Heroku**:
+   - Open your terminal and login using the Heroku CLI:
+     ```bash
+     heroku login
+     ```
 
-# SECRET_KEY: A unique, unpredictable value used for cryptographic signing. 
-# This should be set as an environment variable on Heroku to keep it secure.
-heroku config:set SECRET_KEY=your-secret-key
+4. **Create a New Heroku App**:
+   - Inside the project directory, create a new Heroku app:
+     ```bash
+     heroku create
+     ```
 
-# EMAIL_HOST_USER: The email address used to send emails from the application, 
-# such as password reset emails.
-heroku config:set EMAIL_HOST_USER=your-email@example.com
+5. **Set Environment Variables**:
+   - Set your environment variables such as `SECRET_KEY`, `DEBUG`, `DATABASE_URL`, and email credentials for sending password reset emails:
+     ```bash
+     heroku config:set SECRET_KEY=<your-secret-key>
+     heroku config:set DEBUG=False
+     heroku config:set DATABASE_URL=<your-database-url>
+     heroku config:set EMAIL_HOST_USER=<your-email>
+     heroku config:set EMAIL_HOST_PASSWORD=<your-email-password>
+     ```
 
-# EMAIL_HOST_PASSWORD: The password for the email account. 
-# If using Gmail, ensure that you use an App Password if two-factor authentication is enabled.
-heroku config:set EMAIL_HOST_PASSWORD=your-email-password
+6. **Configure Buildpacks**:
+   - Heroku automatically detects the Python buildpack, but ensure it's set:
+     ```bash
+     heroku buildpacks:set heroku/python
+     ```
 
-# DEBUG: Ensure that DEBUG is set to False in production to avoid exposing sensitive information.
-heroku config:set DEBUG=False
+7. **Push the Code to Heroku**:
+   - Commit any changes and push your code to the Heroku master branch:
+     ```bash
+     git add .
+     git commit -m "Deploying application to Heroku"
+     git push heroku main
+     ```
 
-# Additional Security Settings
-# For enhanced security in a production environment, the following settings have been configured:
+8. **Run Migrations**:
+   - Run the database migrations to set up your tables:
+     ```bash
+     heroku run python manage.py migrate
+     ```
 
-1. SSL Redirection: All traffic is redirected to HTTPS to ensure data is encrypted in transit.
+9. **Collect Static Files**:
+   - Collect static files for your app:
+     ```bash
+     heroku run python manage.py collectstatic --noinput
+     ```
 
-2. HTTP Strict Transport Security (HSTS): Enforces secure connections to the server.
+10. **Ensure Secure Settings**:
+    - Verify that the app is configured with the proper security settings for production:
+      - `DEBUG` should be set to `False`.
+      - `SESSION_COOKIE_SECURE`, `CSRF_COOKIE_SECURE`, and `SECURE_SSL_REDIRECT` should all be enabled for secure cookies and HTTPS redirection.
 
-3. Secure Cookies: Cookies like SESSION_COOKIE and CSRF_COOKIE are marked as secure
-to ensure they are only sent over HTTPS.
+11. **Check the App**:
+    - Open the deployed app in your browser:
+      ```bash
+      heroku open
+      ```
 
-4. Content Security: Prevents the application from loading content 
-that may introduce vulnerabilities, such as cross-site scripting (XSS).
+### Additional Notes:
 
-# Deployment Process
+- **Database**: Heroku uses `DATABASE_URL` for the PostgreSQL database. Make sure your local development database settings are different from the production settings, as Heroku automatically configures this in production.
+  
+- **Debug Mode**: Ensure `DEBUG=False` in production to prevent exposing sensitive information.
 
-# After setting the necessary environment variables, follow these steps to complete the deployment:
+- **Environment Variables**: All sensitive information like `SECRET_KEY`, `DATABASE_URL`, and email credentials must be configured using environment variables.
 
-# Collect Static Files: Run the following command to gather static files before deployment:
-heroku run python manage.py collectstatic --noinput
+- **Heroku Logs**:
+   - If there are any issues after deployment, you can check the Heroku logs for debugging:
+     ```bash
+     heroku logs --tail
+     ```
 
-# Run Migrations: Apply any database migrations required by your Django models:
-heroku run python manage.py migrate
-
-# Restart the Application: Ensure that all changes are applied by restarting the Heroku dynos:
-heroku restart
-
-## Local Development Setup
-
-### Prerequisites
-
-- Python 3.6 or later
-- Git for version control
-
-### Setting Up the Environment
-
-1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/darvid-223/news-forum.git
-    cd news-forum
-    ```
-
-2. **Create a `.env` file for storing secret keys and credentials**:
-    ```bash
-    touch .env
-    ```
-
-3. **Create and Activate a Virtual Environment**:
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
-    ```
-
-4. **Install Dependencies**:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-5. **Apply Migrations**:
-    ```bash
-    python manage.py migrate
-    ```
-
-6. **Run the Development Server**:
-    ```bash
-    python manage.py runserver
-    ```
-
-Make sure to populate the `.env` file with the necessary environment variables such as `SECRET_KEY`, `DB_PASSWORD`, `EMAIL_HOST_USER`, and `EMAIL_HOST_PASSWORD`.
+Following these steps will allow you to deploy the Django News Forum application successfully to Heroku.
 
 ## Credits & Acknowledgments
 
@@ -229,8 +383,7 @@ Make sure to populate the `.env` file with the necessary environment variables s
 
 - Special thanks to my friend Lucas Behrendt, whose feedback and tips from his experience in the same course were immensely helpful.
 - Special thanks to [Udemy's 100 Days of Code: The Complete Python Pro Bootcamp for 2023](https://www.udemy.com/course/100-days-of-code/) for providing comprehensive lessons on Python and object-oriented programming, which significantly contributed to the development of this project.
-- **Fictional Articles**: ChatGPT was used to generate fictional news articles used as sample posts for demonstrating the application's functionality.
-This project was developed with the assistance of OpenAI's ChatGPT in the following areas:
+- **Fictional Articles**: ChatGPT was used to generate fictional news articles used as sample posts for demonstrating the application's functionality. This project was developed with the assistance of OpenAI's ChatGPT in the following areas:
 - **Code Validation**: ChatGPT helped validate the syntax and logic of the code.
 - **Spelling and Grammar Checks**: Assisted in checking and correcting spelling and grammar in the documentation and code comments.
 - **Translations**: Provided translations for multilingual support in the documentation.
