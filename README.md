@@ -61,6 +61,10 @@ These user stories were documented and implemented using GitHub's Issues feature
 
 ## Testing
 
+## JavaScript Testing
+
+The current version of this application does not utilize any JavaScript functionality. Therefore, no JavaScript tests have been implemented.
+
 ### Unit Testing
 
 Unit tests were created to verify the functionality of models, views, and forms. These tests ensure the application behaves as expected under various scenarios. For example, the `PostModelTest` checks that posts are correctly created and associated with categories, while `CommentModelTest` verifies comment functionality.
