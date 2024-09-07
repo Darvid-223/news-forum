@@ -133,8 +133,8 @@ footer p {
     margin-right: 0; 
 }
 
-/* Input */
-inputinput[type="email"], [type="text"], input[type="password"], textarea {
+/* Styling for text, password, and email input fields */
+input[type="text"], input[type="password"], input[type="email"], textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -145,9 +145,10 @@ inputinput[type="email"], [type="text"], input[type="password"], textarea {
     box-sizing: border-box;
 }
 
-inputinput[type="email"], [type="text"]:focus, input[type="password"]:focus, textarea:focus {
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
     border-color: #0077cc;
 }
+
 
 /* Styling for Create Post button */
 .create-post-button {
