@@ -134,7 +134,7 @@ footer p {
 }
 
 /* Input */
-input[type="text"], input[type="password"], textarea {
+inputinput[type="email"], [type="text"], input[type="password"], textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -145,7 +145,7 @@ input[type="text"], input[type="password"], textarea {
     box-sizing: border-box;
 }
 
-input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+inputinput[type="email"], [type="text"]:focus, input[type="password"]:focus, textarea:focus {
     border-color: #0077cc;
 }
 
