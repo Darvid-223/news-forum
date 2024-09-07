@@ -30,10 +30,12 @@
     + [Validator Testing](#validator-testing)
       - [HTML/CSS Validation:](#html-css-validation-)
       - [Python Validation:](#python-validation-)
+      - [JavaScript Validation:](#javascript-validation-)
     + [Running Tests Locally](#running-tests-locally)
   * [Deployment](#deployment)
     + [Steps for Deployment on Heroku:](#steps-for-deployment-on-heroku-)
     + [Additional Notes:](#additional-notes-)
+  * [License](#license)
   * [Credits & Acknowledgments](#credits---acknowledgments)
     + [Acknowledgements](#acknowledgements)
 
@@ -318,6 +320,9 @@ In addition to unit tests, the following manual tests were conducted:
 
 #### Python Validation:
 - The Python code was validated against PEP8 standards using `flake8` to ensure proper code formatting and consistency.
+
+#### JavaScript Validation:
+- The JavaScript code was validated using [JSHint](https://jshint.com/) to check for syntax errors and code quality. The code passed with no significant issues, ensuring adherence to common coding standards.
 
 ### Running Tests Locally
 

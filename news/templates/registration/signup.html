@@ -15,6 +15,15 @@
         {% endif %}
         {{ form.username.errors }}
     </div>
+
+    <div>
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {% if form.email.help_text %}
+          <div id="id_email_helptext">{{ form.email.help_text }}</div> 
+        {% endif %}
+        {{ form.email.errors }}
+    </div>
     
     <div>
         {{ form.password1.label_tag }}
