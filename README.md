@@ -19,9 +19,9 @@ This implementation includes features such as:
 ### Screenshots
 
 ### Article Page
-- Fullscreen: ![Article Fullscreen](../news/static/images/screens/articlefull.png)
-- Mid-screen: ![Article Mid](../news/static/images/screens/articlemid.png)
-- Small-screen: ![Article Small](../news/static/images/screens/articlesmall.png)
+- Fullscreen: ![Article Fullscreen](news/static/images/screens/articlefull.png)
+- Mid-screen: ![Article Mid](news/static/images/screens/articlemid.png)
+- Small-screen: ![Article Small](news/static/images/screens/articlesmall.png)
 
 ### Home Page
 - Fullscreen: ![Home Fullscreen](../news/static/images/screens/homefull.png)
