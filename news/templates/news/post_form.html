@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}{% if form.instance.pk %}Edit{% else %}Create{% endif %} Post{% endblock %}
 
@@ -10,4 +11,8 @@
         <button type="submit">{% if form.instance.pk %}Update{% else %}Save{% endif %}</button>
     </form>
     <a href="{% url 'post_list' %}">Back to all posts</a>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/form_validation.js' %}"></script>
 {% endblock %}

@@ -16,11 +16,8 @@
 </head>
 
 <body>
-    <!-- Header section for the website -->
     <header>
         <h1><a href="{% url 'post_list' %}">News Forum</a></h1>
-        
-        <!-- Navigation bar -->
         <nav>
             {% if user.is_authenticated %}
                 <form id="logout-form" action="{% url 'logout' %}" method="post">
@@ -39,7 +36,6 @@
         </nav>
     </header>
 
-    <!-- Flash messages section -->
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -48,14 +44,14 @@
         </ul>
     {% endif %}
 
-    <!-- Main content section, will be replaced in child templates -->
     <main>
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer section -->
     <footer>
         <p>&copy; 2024 News Forum</p>
     </footer>
+
+    {% block extra_js %}{% endblock %}
 </body>
 </html>
