@@ -16,7 +16,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # Set to False in production environments
+DEBUG = False  # Set to False in production environments
 
 # Hosts allowed to connect to the application
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
