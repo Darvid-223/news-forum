@@ -11,7 +11,7 @@
         {{ form.username.label_tag }}
         {{ form.username }}
         {% if form.username.help_text %}
-          <p id="id_username_helptext">{{ form.username.help_text }}</p>  <!-- Use a block element like <p> for help text -->
+          <div id="id_username_helptext">{{ form.username.help_text }}</div> 
         {% endif %}
         {{ form.username.errors }}
     </div>
@@ -20,7 +20,7 @@
         {{ form.password1.label_tag }}
         {{ form.password1 }}
         {% if form.password1.help_text %}
-          <p id="id_password1_helptext">{{ form.password1.help_text }}</p>  <!-- Same here for help text -->
+          <div id="id_password1_helptext">{{ form.password1.help_text }}</div> 
         {% endif %}
         {{ form.password1.errors }}
     </div>
@@ -29,7 +29,7 @@
         {{ form.password2.label_tag }}
         {{ form.password2 }}
         {% if form.password2.help_text %}
-          <p id="id_password2_helptext">{{ form.password2.help_text }}</p>  <!-- Same for password2 help text -->
+          <div id="id_password2_helptext">{{ form.password2.help_text }}</div> 
         {% endif %}
         {{ form.password2.errors }}
     </div>
