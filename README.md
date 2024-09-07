@@ -18,11 +18,20 @@ This implementation includes features such as:
 
 ### Screenshots
 
-![Home Page](screenshots/homepage.png)
+### Article Page
+- Fullscreen: ![Article Fullscreen](../news/static/images/screens/articlefull.png)
+- Mid-screen: ![Article Mid](../news/static/images/screens/articlemid.png)
+- Small-screen: ![Article Small](../news/static/images/screens/articlesmall.png)
 
-![Post Detail Page](screenshots/post_detail.png)
+### Home Page
+- Fullscreen: ![Home Fullscreen](../news/static/images/screens/homefull.png)
+- Mid-screen: ![Home Mid](../news/static/images/screens/homemid.png)
+- Small-screen: ![Home Small](../news/static/images/screens/homesmall.png)
 
-![Login Page](screenshots/login.png)
+### Login Page
+- Fullscreen: ![Login Fullscreen](../news/static/images/screens/loginfull.png)
+- Mid-screen: ![Login Mid](../news/static/images/screens/loginmid.png)
+- Small-screen: ![Login Small](../news/static/images/screens/loginsmall.png)
 
 ## Project Rationale and Design Decisions
 
