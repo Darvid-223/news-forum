@@ -157,13 +157,14 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1.2em;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .create-post-button:hover {
     background-color: #404b69;
 }
+
 
 /* Label styling */
 label {
