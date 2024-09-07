@@ -155,8 +155,15 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Apply HSTS to all subdomains
 SECURE_HSTS_PRELOAD = True  # Allow browsers to preload the site to always use HTTPS
 
 # Cookies security settings
-SESSION_COOKIE_SECURE = True  # Ensure session cookies are only sent over HTTPS
-CSRF_COOKIE_SECURE = True  # Ensure CSRF cookies are only sent over HTTPS
+if env('DJANGO_ENV') == 'production':
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+else:
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+
 
 # Additional security headers
 SECURE_CONTENT_TYPE_NOSNIFF = True  # Prevent the browser from interpreting files as a different MIME type
@@ -165,5 +172,5 @@ SECURE_BROWSER_XSS_FILTER = True  # Enable XSS protection in browsers
 # Clickjacking prevention
 X_FRAME_OPTIONS = 'DENY'  # Prevent embedding the site in iframes
 
-# Ensure all requests are redirected to HTTPS
-SECURE_SSL_REDIRECT = True  # Set to True in production
+
+
