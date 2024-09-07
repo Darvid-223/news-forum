@@ -1,6 +1,7 @@
 from django import forms
 from .models import Post, Comment, Category
 
+
 # Form for creating and editing posts
 class PostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -16,14 +17,18 @@ class PostForm(forms.ModelForm):
     def clean_title(self):
         title = self.cleaned_data.get('title')
         if len(title) < 3:
-            raise forms.ValidationError("Title must be at least 3 characters long")
+            raise forms.ValidationError(
+                "Title must be at least 3 characters long"
+            )
         return title
 
     # Custom validation for the content field
     def clean_content(self):
         content = self.cleaned_data.get('content')
         if len(content) < 5:
-            raise forms.ValidationError("Content must be at least 5 characters long")
+            raise forms.ValidationError(
+                "Content must be at least 5 characters long"
+            )
         return content
 
 
@@ -37,5 +42,7 @@ class CommentForm(forms.ModelForm):
     def clean_content(self):
         content = self.cleaned_data.get('content')
         if len(content) < 3:
-            raise forms.ValidationError("Comment must be at least 3 characters long")
+            raise forms.ValidationError(
+                "Comment must be at least 3 characters long"
+            )
         return content
