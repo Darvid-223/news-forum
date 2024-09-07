@@ -10,7 +10,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
@@ -23,7 +22,6 @@ ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 LOGIN_REDIRECT_URL = '/'  # Redirect to home after login
 LOGOUT_REDIRECT_URL = '/'  # Redirect to home after logout
 
-
 # Application definition: Installed apps
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -35,7 +33,6 @@ INSTALLED_APPS = [
     'news',  # Custom app for handling news posts
 ]
 
-
 # Middleware configuration: handles requests/responses
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -45,9 +42,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Handles static file caching
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
-
 
 # URL configuration
 ROOT_URLCONF = 'news_forum.urls'
@@ -72,7 +68,6 @@ TEMPLATES = [
 # WSGI application configuration
 WSGI_APPLICATION = 'news_forum.wsgi.application'
 
-
 # Database configuration for development and production environments
 if env('DJANGO_ENV') == 'development':
     # Local PostgreSQL configuration
@@ -89,26 +84,36 @@ if env('DJANGO_ENV') == 'development':
 else:
     # Heroku PostgreSQL configuration
     DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600)  # Use Heroku's DATABASE_URL
+        'default': dj_database_url.config(conn_max_age=600)
     }
-
 
 # Password validation settings
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'UserAttributeSimilarityValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'MinimumLengthValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'CommonPasswordValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'NumericPasswordValidator'
+        ),
     },
 ]
-
 
 # Internationalization settings
 LANGUAGE_CODE = 'en-us'
@@ -119,38 +124,35 @@ USE_I18N = True  # Enable internationalization
 
 USE_TZ = True  # Enable timezone support
 
-
 # Static files configuration (CSS, JavaScript, Images)
 STATIC_URL = '/static/'  # URL for static files
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory for static files in production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'news/static'),  # Additional static files directory
 )
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # Static file compression for production
-
+STATICFILES_STORAGE = (
+    'whitenoise.storage.CompressedManifestStaticFilesStorage'
+)
 
 # Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'  # Default field for auto-incrementing primary keys
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email backend configuration for sending emails (e.g., password resets)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')  # Email account for sending messages
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')  # Email password from .env file
-DEFAULT_FROM_EMAIL = 'darvidapi@gmail.com'  # Default email sender address
-
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')  # Email password from .env
+DEFAULT_FROM_EMAIL = 'darvidapi@gmail.com'
 
 # Security settings
-# HTTP Strict Transport Security
-SECURE_HSTS_SECONDS = 31536000  # Ensure HSTS is enabled for one year
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Apply HSTS to all subdomains
-SECURE_HSTS_PRELOAD = True  # Allow browsers to preload the site to always use HTTPS
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 
 # Cookies security settings
 if env('DJANGO_ENV') == 'production':
@@ -162,13 +164,9 @@ else:
     SESSION_COOKIE_SECURE = False
     CSRF_COOKIE_SECURE = False
 
-
 # Additional security headers
-SECURE_CONTENT_TYPE_NOSNIFF = True  # Prevent the browser from interpreting files as a different MIME type
-SECURE_BROWSER_XSS_FILTER = True  # Enable XSS protection in browsers
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
 
 # Clickjacking prevention
-X_FRAME_OPTIONS = 'DENY'  # Prevent embedding the site in iframes
-
-
-
+X_FRAME_OPTIONS = 'DENY'
