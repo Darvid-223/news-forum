@@ -3,6 +3,7 @@ from .models import Post, Comment, Category
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+
 # Form for creating and editing posts
 class PostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
