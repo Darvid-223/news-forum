@@ -309,9 +309,10 @@ In addition to unit tests, the following manual tests were conducted:
 ### Bugs and Unresolved Issues
 
 #### Password Reset Functionality:
-- The password reset feature is currently not functioning as expected. Although the application attempts to send reset emails through Gmail’s SMTP service, there is an unresolved issue related to SMTP authentication with Google’s service.
-- The error encountered is likely due to incorrect or missing configuration of an app-specific password for the email account in use. Google may block access due to its security settings.
-- This issue is still being investigated, and users are unable to reset their passwords at this time.
+- Initially, the password reset feature was not working as expected. The application attempted to send reset emails through Gmail's SMTP service but encountered issues due to problems with SMTP authentication.
+- The problem was related to Google's security settings, which blocked the email from being sent because the account required an app-specific password.
+- This issue has now been resolved by configuring the Gmail account with an app-specific password, allowing the reset emails to be sent correctly.
+- Users can now reset their passwords by entering their email, receiving a reset link, and following the instructions to set a new password.
 
 ### Validator Testing
 
