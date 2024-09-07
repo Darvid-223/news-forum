@@ -166,4 +166,4 @@ SECURE_BROWSER_XSS_FILTER = True  # Enable XSS protection in browsers
 X_FRAME_OPTIONS = 'DENY'  # Prevent embedding the site in iframes
 
 # Ensure all requests are redirected to HTTPS
-SECURE_SSL_REDIRECT = True  # Set to True in production
+SECURE_SSL_REDIRECT = False  # Set to True in production

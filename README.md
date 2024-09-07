@@ -73,6 +73,7 @@ You can run the unit tests by executing:
 
 ```bash
 python manage.py test
+```
 
 ### Manual Testing
 
@@ -123,7 +124,6 @@ The News Forum application is deployed on Heroku. To deploy your own version:
 3. **Link to GitHub**: Connect your Heroku app to your GitHub repository for automatic deployment.
 4. **Deploy the Application**: Deploy manually or set up automatic deploys from the GitHub branch.
 
-```bash
 # Environment Configuration
 
 # To ensure the application runs securely and efficiently on Heroku, 
