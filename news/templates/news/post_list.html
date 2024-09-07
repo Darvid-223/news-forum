@@ -21,10 +21,9 @@
 
     <!-- Create Post button -->
     <div style="margin-bottom: 20px;">
-        <a href="{% url 'post_create' %}">
-            <button class="create-post-button">Create Post</button>
-        </a>
+        <button class="create-post-button" onclick="window.location.href='{% url 'post_create' %}';">Create Post</button>
     </div>
+    
 
     <!-- Post list -->
     <h1>
