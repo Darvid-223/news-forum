@@ -89,15 +89,18 @@ Follow these steps to install and run the project locally:
    ```bash
    git clone https://github.com/darvid-223/news-forum.git
    cd news-forum
+   ```
 
 2. **Create a Virtual Environment**:
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows use venv\Scripts\activate
+   ```
 
 3. **Install Dependencies**:
     ```bash
     pip install -r requirements.txt
+    ```
 
 4. **Create a .env File**:
    ```bash
@@ -105,22 +108,27 @@ Follow these steps to install and run the project locally:
    DB_PASSWORD=your-database-password
    EMAIL_HOST_USER=your-email@example.com
    EMAIL_HOST_PASSWORD=your-email-password
+   ```
 
 5. **Apply Migrations**:
    ```bash
    python manage.py migrate
+   ```
 
 6. **Create a Superuser (optional)**:
    ```bash
    python manage.py createsuperuser
+   ```
 
 7. **Run the Development Server:**:
    ```bash
    python manage.py runserver
+   ```
 
 8. **Collect Static Files:**:
    ```bash
    python manage.py collectstatic
+   ```
 
 ### Wireframes & Design Process
 
@@ -189,9 +197,9 @@ Here are the steps to use the application:
 
 1. **Start the Development Server**:
    - If running the project locally, ensure that the development server is running:
-     ```bash
-     python manage.py runserver
-     ```
+   ```bash
+   python manage.py runserver
+   ```
 
 2. **Access the Application**:
    - Open a web browser and navigate to `http://127.0.0.1:8000/` to view the application locally.
@@ -318,14 +326,17 @@ To test the application locally, follow these steps:
 1. **Ensure all dependencies are installed**:
    ```bash
    pip install -r requirements.txt
+   ```
 
 2. **Run the Django development server to manually test functionality**:
    ```bash
    python manage.py runserver
+   ```
 
 3. **For unit tests, execute the following**:
    ```bash
    python manage.py test
+   ```
 
 By running these tests, you can ensure that the application functions correctly in both development and production environments.
 
@@ -343,62 +354,62 @@ The News Forum application is deployed on [Heroku](https://www.heroku.com/) for 
 
 3. **Login to Heroku**:
    - Open your terminal and login using the Heroku CLI:
-     ```bash
-     heroku login
-     ```
+   ```bash
+   heroku login
+   ```
 
 4. **Create a New Heroku App**:
    - Inside the project directory, create a new Heroku app:
-     ```bash
-     heroku create
-     ```
+   ```bash
+   heroku create
+   ```
 
 5. **Set Environment Variables**:
    - Set your environment variables such as `SECRET_KEY`, `DEBUG`, `DATABASE_URL`, and email credentials for sending password reset emails:
-     ```bash
-     heroku config:set SECRET_KEY=<your-secret-key>
-     heroku config:set DEBUG=False
-     heroku config:set DATABASE_URL=<your-database-url>
-     heroku config:set EMAIL_HOST_USER=<your-email>
-     heroku config:set EMAIL_HOST_PASSWORD=<your-email-password>
-     ```
+   ```bash
+   heroku config:set SECRET_KEY=<your-secret-key>
+   heroku config:set DEBUG=False
+   heroku config:set DATABASE_URL=<your-database-url>
+   heroku config:set EMAIL_HOST_USER=<your-email>
+   heroku config:set EMAIL_HOST_PASSWORD=<your-email-password>
+   ```
 
 6. **Configure Buildpacks**:
    - Heroku automatically detects the Python buildpack, but ensure it's set:
-     ```bash
-     heroku buildpacks:set heroku/python
-     ```
+   ```bash
+   heroku buildpacks:set heroku/python
+   ```
 
 7. **Push the Code to Heroku**:
    - Commit any changes and push your code to the Heroku master branch:
-     ```bash
-     git add .
-     git commit -m "Deploying application to Heroku"
-     git push heroku main
-     ```
+   ```bash
+   git add .
+   git commit -m "Deploying application to Heroku"
+   git push heroku main
+   ```
 
 8. **Run Migrations**:
    - Run the database migrations to set up your tables:
-     ```bash
-     heroku run python manage.py migrate
-     ```
+   ```bash
+   heroku run python manage.py migrate
+   ```
 
 9. **Collect Static Files**:
    - Collect static files for your app:
-     ```bash
-     heroku run python manage.py collectstatic --noinput
-     ```
+   ```bash
+   heroku run python manage.py collectstatic --noinput
+   ```
 
 10. **Ensure Secure Settings**:
     - Verify that the app is configured with the proper security settings for production:
-      - `DEBUG` should be set to `False`.
-      - `SESSION_COOKIE_SECURE`, `CSRF_COOKIE_SECURE`, and `SECURE_SSL_REDIRECT` should all be enabled for secure cookies and HTTPS redirection.
+    - `DEBUG` should be set to `False`.
+    - `SESSION_COOKIE_SECURE`, `CSRF_COOKIE_SECURE`, and `SECURE_SSL_REDIRECT` should all be enabled for secure cookies and HTTPS redirection.
 
 11. **Check the App**:
     - Open the deployed app in your browser:
-      ```bash
-      heroku open
-      ```
+    ```bash
+    heroku open
+    ```
 
 ### Additional Notes:
 
@@ -410,11 +421,15 @@ The News Forum application is deployed on [Heroku](https://www.heroku.com/) for 
 
 - **Heroku Logs**:
    - If there are any issues after deployment, you can check the Heroku logs for debugging:
-     ```bash
-     heroku logs --tail
-     ```
+   ```bash
+   heroku logs --tail
+   ```
 
 Following these steps will allow you to deploy the Django News Forum application successfully to Heroku.
+
+## License
+
+This project is created for educational purposes and personal use. The code and materials in this project are free to explore and learn from, but are not intended for commercial use. If you wish to use any part of this project for your own work, please ensure it is for educational purposes and provide proper attribution.
 
 ## Credits & Acknowledgments
 
@@ -422,7 +437,8 @@ Following these steps will allow you to deploy the Django News Forum application
 
 - Special thanks to my friend Lucas Behrendt, whose feedback and tips from his experience in the same course were immensely helpful.
 - Special thanks to [Udemy's 100 Days of Code: The Complete Python Pro Bootcamp for 2023](https://www.udemy.com/course/100-days-of-code/) for providing comprehensive lessons on Python and object-oriented programming, which significantly contributed to the development of this project.
-- **Fictional Articles**: ChatGPT was used to generate fictional news articles used as sample posts for demonstrating the application's functionality. This project was developed with the assistance of OpenAI's ChatGPT in the following areas:
+This project was developed with the assistance of OpenAI's ChatGPT in the following areas:
+- **Fictional Articles**: ChatGPT was used to generate fictional news articles used as sample posts for demonstrating the application's functionality. 
 - **Code Validation**: ChatGPT helped validate the syntax and logic of the code.
 - **Spelling and Grammar Checks**: Assisted in checking and correcting spelling and grammar in the documentation and code comments.
 - **Translations**: Provided translations for multilingual support in the documentation.
